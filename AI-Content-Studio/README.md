@@ -169,7 +169,3 @@ streamlit run app.py
 - GitHub: https://github.com/JugalDeshmukh
 
 ---
-
-## License
-
-This project is intended for educational and portfolio purposes.
