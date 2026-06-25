@@ -1,16 +1,19 @@
-from transformers import pipeline
+from groq import Groq
 
-generator = pipeline(
-    "text-generation",
-    model="distilgpt2"
+client = Groq(
+    api_key="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"
 )
 
-#distilgpt2
-#google/flan-t5-base
-
 def generate_content(prompt):
-    result = generator(
-        prompt,
-        max_new_tokens=200
+
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
     )
-    return result[0]["generated_text"]
+
+    return response.choices[0].message.content
